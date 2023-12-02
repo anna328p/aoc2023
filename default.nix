@@ -1,6 +1,6 @@
 { stdenv
 , lib
-,
+, ruby_3_2
 }:
 
 stdenv.mkDerivation {
@@ -12,7 +12,7 @@ stdenv.mkDerivation {
 	];
 
 	buildInputs = [
-
+		ruby_3_2
 	];
 
 	meta = {

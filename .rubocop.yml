@@ -1,0 +1,37 @@
+AllCops:
+  NewCops: enable
+  ActiveSupportExtensionsEnabled: true
+  TargetRubyVersion: 3.2
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Layout/FirstArgumentIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/LineLength:
+  Max: 80
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/RedundantLineBreak:
+  Enabled: true
+
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+
+Style/CommandLiteral:
+  EnforcedStyle: mixed
+
+Style/AccessModifierDeclarations:
+  EnforcedStyle: inline
+
+Style/ParallelAssignment:
+  Enabled: false
