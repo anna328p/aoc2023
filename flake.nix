@@ -3,11 +3,13 @@
 
 	inputs = {
 		# nixpkgs.url = github:nixos/nixpkgs;
+		nix-prelude.url = github:anna328p/nix-prelude;
 	};
 
 	outputs = { self
 		, nixpkgs
-	}: let
+		, nix-prelude
+	}@inputs: let
 		inherit (nixpkgs.lib) genAttrs systems;
 
 		# forEachSystem' : (Str -> Set Any) -> (Set Any -> Set Any) -> Set (Set Any)
@@ -41,5 +43,7 @@
 			${pkgName} = shell;
 			default = shell;
 		});
+
+		lib = import ./nix inputs;
 	};
 }

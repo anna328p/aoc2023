@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "nix-prelude": {
+      "inputs": {
+        "parsec": "parsec"
+      },
+      "locked": {
+        "lastModified": 1701640190,
+        "narHash": "sha256-FBHtlo/JPqzvADSJlsBXYo+VjpLe7vZctUqvGymtRrc=",
+        "owner": "anna328p",
+        "repo": "nix-prelude",
+        "rev": "74426440ddc9aa8165adeff01e92a06bf4ef9e9d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anna328p",
+        "repo": "nix-prelude",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1695597504,
@@ -13,8 +31,24 @@
         "type": "indirect"
       }
     },
+    "parsec": {
+      "locked": {
+        "lastModified": 1668890541,
+        "narHash": "sha256-I6ZODAu2aSVr8xiBVewefQQL12wOrTGnLKhX3GFFCwM=",
+        "owner": "milahu",
+        "repo": "nix-parsec",
+        "rev": "34dea7a47fc49b45bf965eba660250b86312707d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "milahu",
+        "repo": "nix-parsec",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "nix-prelude": "nix-prelude",
         "nixpkgs": "nixpkgs"
       }
     }
