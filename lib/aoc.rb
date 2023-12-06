@@ -2,6 +2,7 @@
 
 require 'bundler/setup'
 
+require_relative 'aoc/patches'
 require_relative 'aoc/constants'
 require_relative 'aoc/api'
 require_relative 'aoc/cli'
