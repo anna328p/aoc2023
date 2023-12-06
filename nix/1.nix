@@ -1,31 +1,23 @@
-{ L, inputDir, ... }:
+{ L, getInputLines, ... }:
 
 let
 	inherit (builtins)
-		readFile
 		head
 		split match
 		concatLists
 		filter
 		isList
-		stringLength
 		;
 
 	inherit (L)
-		lines
 		last
 		charToInt
-		pipe
 		sum
 		;
 in rec {
 	exports = self: { };
 
-	input = pipe "${inputDir}/1/input.txt" [
-		readFile
-		lines
-		(filter (v: stringLength v > 0))
-	];
+	input = getInputLines 1 "input";
 
 	parseDigit = d: (charToInt d) - (charToInt "0");
 
