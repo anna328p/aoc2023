@@ -23,36 +23,36 @@ let
 		product
 		pipe'
 		foldl1
+		o oo
+		fst snd
+		mkMapping
 		;
 in rec {
 	exports = self: {};
 
 	toInt = fromJSON;
 
+	split' = oo (filter isString) split;
+
 	parseLine = line: let
-		re = "Game (.+): (.*)$";
-		matchRes = match re line;
+		matchRes = match "Game ([0-9]+): (.*)$" line;
 
-		id = toInt (elemAt matchRes 0);
-
-		subsets = split "; " (elemAt matchRes 1);
-		subsets' = filter isString subsets;
+		id = toInt (fst matchRes);
+		subsetsStr = split' "; " (snd matchRes);
 
 		parseSubset = s: let
-			colors = filter isString (split ", " s);
-
 			parseColor = c: let
 				res = match "([0-9]+) +(.+)" c;
 			in
-				{ name = elemAt res 1; value = toInt (elemAt res 0); };
+				mkMapping (snd res) (o toInt fst res);
+
+			colors = split' ", " s;
 		in
 			listToAttrs (map parseColor colors);
 
-		subsets'' = map parseSubset subsets';
-
-		res = { inherit id; subsets = subsets''; };
+		subsets = map parseSubset subsetsStr;
 	in
-		res;
+		{ inherit id subsets; };
 
 	input = map parseLine (getInputLines 2 "input");
 
